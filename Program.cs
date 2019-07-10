@@ -57,7 +57,7 @@ namespace studentExercises
                 LastName = "Bergthold",
                 SlackHandle = "carlybergthold",
                 Cohort = 32,
-                StudentExcercises = new List<string>()
+                StudentExcercises = new List<string>() {"hi"}
             };
             var Jake = new Student()
             {
@@ -119,6 +119,15 @@ namespace studentExercises
             };
 
             // Have each instructor assign 2 exercises to each of the students.
+            foreach(var ex in Carly.StudentExcercises) {
+                Console.WriteLine(ex);
+            }
+
+            Adam.Assign("things", "C#", "Carly");
+
+            foreach(var ex in Carly.StudentExcercises) {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

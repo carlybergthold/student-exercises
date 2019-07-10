@@ -11,9 +11,13 @@ namespace studentExercises
         public int Cohort { get; set; }
         public int CohortId { get; set; }
         public string Speciality { get; set; }
-        public void AssignExercise(int student, int exercise) {
+        public void Assign(string name, string language, string student) {
+            var ex = new Exercise() {
+                Name = name,
+                Language = language
+            };
             // A method to assign an exercise to a student
-            Console.WriteLine($"Assign to {student}");
+            student.StudentExcercises.Add(ex);
         }
     }
 }
