@@ -100,13 +100,34 @@ namespace studentExercises
 
             // // Have each instructor assign 2 exercises to each of the students.
             Adam.AssignEx(Databases, Carly);
-            Adam.AssignNewEx("anotherEx", "C#", Carly);
+            Adam.AssignNewEx("C#", "C#", Carly);
             Jisie.AssignEx(AspSprint, Jake);
-            Jisie.AssignNewEx("anotherEx", "C#", Jake);
+            Jisie.AssignNewEx("C#", "C#", Jake);
             Steve.AssignEx(Nutshell, Sydney);
-            Steve.AssignNewEx("anotherEx", "HTML", Sydney);
+            Steve.AssignNewEx("Grunt", "HTML", Sydney);
             Bryan.AssignEx(CelebrityTribute, Jacquelyn);
-            Bryan.AssignNewEx("anotherEx", "CSS", Jacquelyn);
+            Bryan.AssignNewEx("Flexbox", "CSS", Jacquelyn);
+
+            // Create a list of students. Add all of the student instances to it.
+            List<Student> students = new List<Student>();
+            students.AddRange(new[] {Carly, Jake, Sydney, Jacquelyn});
+
+            // Create a list of exercises. Add all of the exercise instances to it.
+            List<Exercise> exercises = new List<Exercise>();
+            exercises.AddRange(new[] {CelebrityTribute, Nutshell, AspSprint, Databases});
+
+            // Generate a report that displays which students are working on which exercises.
+            foreach (var student in students)
+            {
+                var stuExercises = new List<string>();
+                foreach (var ex in student.Exercises)
+                {
+                stuExercises.Add(ex.Name);
+                }
+                string[] exArray = stuExercises.ToArray();
+                var exs = string.Join(" and ", exArray);
+                Console.WriteLine($"{student.FirstName} is working on {exs}");
+            }
         }
     }
 }
